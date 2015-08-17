@@ -1,0 +1,46 @@
+<div id="content" class="modal" ng-controller="CameraCtrl">
+    <ion-header-bar class="bar bar-header bar-light">
+        <h1 class="title">My snapchat</h1>
+        <button class="button button-icon icon  ion-ios-close-outline" ng-controller="disconnectCtrl" ng-click="disconnect()">  Déconnection</button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="col col-90 picture">
+            <img id="pictureTaking" src="img/snap.jpg" alt="">
+            <div>
+                <form ng-submit="sendSnap()" id="formSend">
+                    <label class="item item-input item-stacked-label" for="recherche"><span class="input-label">Rechercher un membre</span>
+                        <input class="item item-input item-stacked-label" type="text" ng-model="query" name="recherche">
+                    </label>
+                    <label class="item item-input item-select" for="select"><div class="input-label">Slectionner un membre*</div>
+                        <select name="select" ng-model="formDataSnap.email" multiple>
+                            <option ng-repeat="user in users | filter: query" value="{{ user.id }}">{{ user.username }}</option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-select" for="timeSnap"><div class="input-label">Temps d'affichage*</div>
+                        <select name="timeSnap" ng-model="formDataSnap.timeSnap">
+                            <option value="1">1 seconde</option>
+                            <option value="2">2 secondes</option>
+                            <option value="3">3 secondes</option>
+                            <option value="4">4 secondes</option>
+                            <option value="5" selected>5 secondes</option>
+                            <option value="6">6 secondes</option>
+                            <option value="7">7 secondes</option>
+                            <option value="8">8 secondes</option>
+                            <option value="9">9 secondes</option>
+                            <option value="10">10 secondes</option>
+                        </select>
+                    </label>
+                    <input class="button button-positive send" type="submit" name="send" value="Envoyer">
+                </form>
+                <span ng-show="succesSend">{{ succesSend }}</span>
+                <span ng-show="errorSend">{{ errorSend }}</span>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar>
+        <div class="bar bar-footer">
+            <button class="button button-energized icon  ion-camera" ng-click="takePic()">  Photo</button>
+            <a class="button icon-left ion-star button-positive" href="#/mySnap" title="">Mes snaps</a>
+        </div>
+    </ion-footer-bar>
+</div>

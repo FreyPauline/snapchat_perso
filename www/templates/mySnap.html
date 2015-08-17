@@ -1,0 +1,10 @@
+<div id="content" class="modal" ng-controller="mySnap">
+<ion-content>
+    <div  id="snap" ng-repeat="snap in snaps">
+        <a class="button icon-center button-balanced" href="#/showSnap/id/{{snap.id}}" title="">{{ snap.username}}</a>
+    </div>
+</ion-content>
+<div class="bar bar-footer">
+        <a class="button icon-left ion-camera button-positive" href="#/pageConnect" title="">Envoyer un snap</a>
+    </div>
+</div>

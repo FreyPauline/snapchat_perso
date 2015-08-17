@@ -1,0 +1,44 @@
+<div id="content" class="modal">
+        <ion-header-bar class="bar-secondary">
+            <h1 class="title">Bienvenue sur My snapchat</h1>
+        </ion-header-bar>
+    <ion-content>
+        <div class="list">
+        <div class="titre">
+            <h4>Connexion</h4>
+        </div>
+            <form class="formHome" ng-controller="formCtrl" ng-submit="processFormSign()">
+                <label class="item item-input item-stacked-label" for="email">
+                    <span class="input-label">Votre Email</span>
+                    <input type="text" name="email" placeholder="email" ng-model="formData.email" required>
+                </label>
+                <label class="item item-input item-stacked-label" for="passeword">
+                    <span class="input-label">Votre mot de passe</span>
+                    <input type="password" name="passeword" placeholder="passeword" ng-model="formData.password" required>
+                </label>
+                <label class="checkbox" for="stayConnect">
+                    <input type="checkbox" name="stayConnect" value="0" ng-model="formData.stayConnect">
+                    Rester connecté
+                </label>
+                <input class="button button-block button-positive home" type="submit" name="sign" value="sign">
+            <span ng-show="errorsSign">{{ errorsSign }}</span>
+            </form>
+            <div class="titre">
+                <h4>Inscription</h4>
+            </div>
+            <form class="formHome" ng-controller="formCtrl" ng-submit="processFormRegister()">
+                <label class="item item-input item-stacked-label" for="email">
+                    <span class="input-label">Votre Email</span>
+                    <input type="text" name="email" placeholder="email" ng-model="formData.email" required>
+                </label>
+                <label class="item item-input item-stacked-label" for="passeword">
+                    <span class="input-label">Votre mot de passe</span>
+                    <input type="password" name="passeword" placeholder="passeword" ng-model="formData.password" required>
+                </label>
+                <input class="button button-block button-positive home" type="submit" name="register" value="register">
+            <span ng-show="successInscrip">{{ successInscrip }}</span>
+            <span ng-show="errors">{{ errors }}</span>
+            </form>
+        </div>
+    </ion-content>
+</div>
